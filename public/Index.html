@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHR Academy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(120deg, #000, #222);
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            animation: slideDown 1.5s ease forwards;
+        }
+
+            h1 span {
+                display: inline-block;
+                animation: fadeInUp 1.5s ease forwards;
+            }
+
+        p {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #aaa;
+            animation: fadeIn 2.5s ease forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            animation: fadeIn 3s ease forwards;
+        }
+
+            .btn:hover {
+                background: white;
+                color: black;
+            }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Background animation */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%) center/150px 150px;
+            animation: moveBg 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveBg {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 300px 300px;
+            }
+        }
+        .btn {
+  padding: 10px 20px;
+  border: 1px solid white;
+  background: black;   /* <-- button background */
+  color: white;        /* <-- button text color */
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;   /* <-- background on hover */
+  color: black;        /* <-- text color on hover */
+}
+        .btn {
+            padding: 12px 25px;
+            border: 1px solid #444; /* subtle border to blend */
+            background: #1a1a1a; /* dark background */
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 8px; /* smoother edges */
+            transition: 0.3s;
+        }
+
+            .btn:hover {
+                background: white; /* invert effect */
+                color: black;
+                border-color: white;
+            }
+
+
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+  
+    <div class="container">
+        <h1><span>WHR Academy</span></h1>
+        <p>Where dedication meets transformation</p>
+        <a href="join.html" class="btn">Join Now</a>
+        <br>
+        <a href="indextest.html">
+            <button class="btn">Want to know what we do before joining?</button>
+        </a>
+
+
+    </div>
+
+</body>
+</html>

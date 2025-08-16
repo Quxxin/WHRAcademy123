@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - WHR Academy</title>
+  <style>
+    body {
+      margin: 0;
+     font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(120deg, #000, #222);
+      color: white;
+      text-align: center;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Base reveal */
+    .reveal {
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    /* Heading animation */
+    .reveal-left {
+      transform: translateX(-80px);
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Paragraph animation */
+    .reveal-right {
+      transform: translateX(80px);
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- First block -->
+  <section>
+    <h1 class="reveal reveal-left">About Us</h1>
+    <p class="reveal reveal-right">Are you in lacking motivation? </p>
+     <p class="reveal reveal-right">We are here to help you break through limits.</p>
+  </section>
+
+  <!-- Second block -->
+  <section>
+    <h2 class="reveal reveal-left">Our Mission</h2>
+    <p class="reveal reveal-right">At WHR Academy we:</p>
+     <p class="reveal reveal-right">Focus on discipline</p>
+      <p class="reveal reveal-right"> Results and mindset.</p>
+      <p class="reveal reveal-right"> Our mission is to turn your dedication into transformation.</p>
+  
+  </section>
+
+  <!-- Third block -->
+  <section>
+    <h2 class="reveal reveal-left">Why Choose Us?</h2>
+  <p class="reveal reveal-right">You will get 1:1 coaching lessons</p>
+   <p class="reveal reveal-right"> Accountability will keep you moving.</p>
+   <p class="reveal reveal-right">The right environment to grow more powerful every day.</p>
+  </section>
+
+    <section>
+  <h2 class="reveal reveal-left">Our Clients </h2>
+  <p class="reveal reveal-right">We have had over 80 successful clients <P/>
+        <p class="reveal reveal-right">This is your chance to start goals<P/>
+        <p class="reveal reveal-right">Over 90% of clients have shown amazing results</p>
+
+        <p class="reveal reveal-right">THIS is your time to shine, DO NOT let it slip</p>
+    
+</section>
+
+  <script>
+    function reveal() {
+      const reveals = document.querySelectorAll(".reveal");
+
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
+
+
+<a href="index.html" class="back-link">← Back to Home</a>
+
+</body>
+</html>

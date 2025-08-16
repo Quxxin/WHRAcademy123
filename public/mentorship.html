@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WHR Academy Mentorship</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #000, #222);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-wrapper {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+            .form-step.active {
+                display: block;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #444;
+            }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+            .back-link:hover {
+                color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <h1>WHR Academy</h1>
+        <p class="subtitle">Where dedication meets transformation</p>
+
+        <form id="mentorshipForm">
+            <!-- Step 1 -->
+            <div class="form-step active">
+           
+
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" />
+
+                <label for="location">Location (City/Country)</label>
+                <input type="text" id="location" name="location" />
+
+                <div class="buttons">
+                    <button type="button" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="form-step">
+                <label for="goals">Three goals that you want to achieve</label>
+                <textarea id="goals" name="goals" rows="3"></textarea>
+
+                <label for="motivation">What motivates you to pursue transformation?</label>
+                <textarea id="motivation" name="motivation" rows="3"></textarea>
+
+                <div class="buttons">
+                    <button type="button" onclick="prevStep()">Back</button>
+                    <button type="button" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="form-step">
+                <label for="hours">Weekly Commitment (in hours)</label>
+                <input type="number" id="hours" name="hours" />
+
+                <label for="time">Preferred Session Time</label>
+                <select id="time" name="time">
+                    <option value="">Select...</option>
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                </select>
+
+                <div class="buttons">
+                    <button type="button" onclick="prevStep()">Back</button>
+                    <button type="button" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="form-step">
+                <label for="experience">Have you worked with a coach before?</label>
+                <textarea id="experience" name="experience" rows="2"></textarea>
+
+                <label for="focus">What areas do you want to focus on?</label>
+                <textarea id="focus" name="focus" rows="3" placeholder="e.g., fitness, mindset, career, relationships"></textarea>
+
+                <div class="buttons">
+                    <button type="button" onclick="prevStep()">Back</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+
+    <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll(".form-step");
+
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    document.getElementById("mentorshipForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Form submitted successfully!");
+      // You can add backend integration here
+    });
+    </script>
+</body>
+</html>
